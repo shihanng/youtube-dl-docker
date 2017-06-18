@@ -10,3 +10,9 @@ jobs:
       - setup_remote_docker
       - run: ./ci/build_image.sh
       - run: ./ci/run_tests.sh
+      - deploy:
+          name: Push the latest image to Docker Hub
+          command: |
+            if "${CIRCLE_BRANCH}" == "master"; then
+              ./ci/deploy.sh
+            fi
