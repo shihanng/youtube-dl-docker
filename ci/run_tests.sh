@@ -2,4 +2,4 @@
 
 set -e
 
-docker run -it --rm shihanng/youtube-dl-docker:pre --version
+docker run -it --rm "${DOCKER_REPO}":pre --version
