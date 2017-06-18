@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:2.7.13
+        user: root
+    working_directory: /src
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: ./ci/build_image.sh
+      - run: ./ci/run_tests.sh
