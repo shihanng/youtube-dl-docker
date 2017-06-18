@@ -13,7 +13,7 @@ function docker_tag_exists() {
 }
 
 VERSION="$(docker run -it --rm ${DOCKER_REPO}:pre --version)"
-VERSION=$(tr -dc '[[:print:]]' <<< "$VERSION") # Clean up.
+VERSION=$(tr -dc '[[:digit:].]' <<< "$VERSION") # Clean up.
 
 if docker_tag_exists ${DOCKER_REPO} "${VERSION}"; then
   echo "${DOCKER_REPO}:${VERSION} exists in Docker Hub"
