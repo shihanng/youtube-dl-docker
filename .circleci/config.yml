@@ -4,6 +4,10 @@ jobs:
     docker:
       - image: circleci/python:2.7.13
         user: root
+        environment:
+          # DOCKER_USER: secret
+          # DOCKER_PASS: secret
+          # DOCKER_REPO: secret
     working_directory: /src
     steps:
       - checkout
